@@ -4,9 +4,11 @@ import { Box } from '@mui/system';
 import { Button, CircularProgress, Typography } from '@mui/material';
 import TextFieldComp from '../components/TextFieldComp';
 import useAxios from '../hooks/useAxios';
+import { useNavigate } from 'react-router-dom';
 
 const Settings = () => {
   const { response, error, loading } = useAxios({ url: '/api_category.php' });
+  const navigate = useNavigate();
 
   if (loading) {
     return (
@@ -52,6 +54,7 @@ const Settings = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    navigate('/questions');
   };
 
   return (
